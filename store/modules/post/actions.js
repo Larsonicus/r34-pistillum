@@ -1,8 +1,7 @@
-import ENV from '@/env'
 export default {
   async getResponse({ commit, state }) {
     const response = await this.$axios.$get(
-      `${ENV.api.apiUrl}transit/posts?pid=${state.pid}&limit=${state.limit}&tags=${state.tags}`
+      `${this.$config.apiUrl}transit/posts?pid=${state.pid}&limit=${state.limit}&tags=${state.tags}`
     )
     if (!response.posts.length) {
       commit('setEndContent', true)

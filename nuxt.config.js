@@ -1,5 +1,5 @@
 export default {
-  api: {
+  publicRuntimeConfig: {
     apiUrl: process.env.API_URL,
   },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
