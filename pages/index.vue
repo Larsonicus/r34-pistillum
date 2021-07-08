@@ -60,7 +60,7 @@ export default {
     scroll() {
       window.onscroll = () => {
         const bottomOfWindow =
-          document.documentElement.scrollTop + window.innerHeight ===
+          Math.ceil(document.documentElement.scrollTop + window.innerHeight) >=
           document.documentElement.offsetHeight // TODO: спиннер на 1 секунду
         if (bottomOfWindow && !this.isEndContent) {
           this.changePid({ isIncrement: true })
