@@ -1,5 +1,11 @@
 <template>
-  <img :src="content" loading="lazy" decoding="async" class="d-block" />
+  <img
+    :src="content"
+    loading="lazy"
+    decoding="async"
+    class="d-block"
+    @error="$event.target.src = `https://cors-proxy.r34.app/?q=${content}`"
+  />
 </template>
 
 <script>
