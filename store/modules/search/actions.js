@@ -1,7 +1,7 @@
 export default {
   async getResponse({ commit }, value) {
     const response = await this.$axios.get(
-      `https://r34-gynoecium.herokuapp.com/transit/tags/?q=${value}`
+      `${this.$config.apiUrl}transit/tags/?q=${value}`
     )
     commit('setFoundTags', response.data.tags)
   },
@@ -29,9 +29,4 @@ export default {
     }
     commit('addBannedTag', tag)
   },
-  // addPresetTag({ commit, state }, tag) {
-  //   if (state.bannedTags.includes(tag)) {
-  //     commit
-  //   }
-  // },
 }
