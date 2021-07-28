@@ -54,8 +54,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.fs-1 {
-  font-size: 1rem !important;
-}
-</style>
+<style></style>

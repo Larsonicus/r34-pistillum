@@ -6,8 +6,4 @@
 export default {}
 </script>
 
-<style scoped>
-.c-pointer {
-  cursor: pointer;
-}
-</style>
+<style></style>

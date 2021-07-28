@@ -16,8 +16,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.d-block {
-  display: block;
-}
-</style>
+<style></style>

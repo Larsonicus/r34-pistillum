@@ -32,12 +32,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.d-flex {
-  max-width: 260px;
-  display: flex;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-</style>
+<style></style>

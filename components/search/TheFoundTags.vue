@@ -19,12 +19,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.d-flex {
-  max-width: 260px;
-  display: flex;
-}
-.flex-column {
-  flex-direction: column;
-}
-</style>
+<style></style>
