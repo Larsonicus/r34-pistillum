@@ -73,32 +73,11 @@ export default {
 </script>
 
 <style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+.fs-1 {
+  font-size: 1rem !important;
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-body {
-  background-color: #333;
-  color: #ccc;
-}
-.wrapper {
-  position: relative;
-}
-.container {
-  width: 720px;
+.c-pointer {
+  cursor: pointer;
 }
 .m-center {
   margin: 0 auto;
@@ -106,26 +85,19 @@ body {
 .ta-center {
   text-align: center;
 }
-.mb-2 {
-  margin-bottom: 2rem;
-}
-.mt-2 {
-  margin-top: 2rem;
-}
-.absolute {
-  position: absolute;
-}
-.l2 {
-  left: 2rem;
-}
-.t2 {
-  top: 2rem;
-}
-.t4 {
-  top: 4rem;
+.right-top-angle {
+  right: 0;
+  top: 0;
 }
 .clear-button {
   border-width: 0;
   padding: 0;
+  width: 100%;
+}
+.shadow {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.white-color {
+  color: aliceblue;
 }
 </style>

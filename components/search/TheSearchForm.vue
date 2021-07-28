@@ -1,5 +1,5 @@
 <template>
-  <div class="ta-center">
+  <form style="max-width: inherit" @submit.prevent>
     <form @submit.prevent>
       <input
         v-model="value"
@@ -37,7 +37,13 @@ export default {
 
 <style scoped>
 .input-container {
-  font-size: 2em;
-  max-width: 255px;
+  font-size: 2rem;
+  background-color: #1f4068;
+  border-width: 0;
+}
+@media screen and (min-width: 1200px) {
+  .input-container {
+    background-color: #162447;
+  }
 }
 </style>
