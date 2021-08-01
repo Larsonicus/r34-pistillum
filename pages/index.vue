@@ -1,15 +1,7 @@
 <template>
-  <div class="wrapper">
-    <div class="absolute l2 t2">
-      <the-restart-button class="mb-2" />
-      <search-the-search-form />
-      <search-the-list-selected-tags class="mb-2" />
-      <search-the-list-banned-tags class="mb-2" />
-      <search-the-found-tags />
-      <search-the-search-button class="mt-2" />
-      <search-the-preset-button />
-    </div>
-    <div v-for="(post, index) in posts" :key="index" class="m-center container">
+  <div>
+    <div v-for="post in posts" :key="post.id" class="m-center container">
+      <!-- TODO: выводить посты без повторов -->
       <post-container
         :content="post.content"
         :content-type="post.contentType"
@@ -19,10 +11,10 @@
         :data-height="post.contentHeight"
       />
     </div>
+    <!-- Если posts.length === 0 -->
     <div class="ta-center">
       <the-end-content />
     </div>
-    <!-- Если posts.length === 0 -->
     <div class="ta-center">
       <the-get-posts-button />
     </div>
