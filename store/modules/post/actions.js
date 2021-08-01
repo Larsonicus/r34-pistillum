@@ -3,15 +3,16 @@ export default {
     const response = await this.$axios.$get(
       `${this.$config.apiUrl}transit/posts?pid=${state.pid}&limit=${state.limit}&tags=${state.tags}`
     )
-    if (!response.posts.length) {
+    const posts = response.posts
+    if (!posts.length) {
       commit('setEndContent', true)
       return
     }
-    if (response.posts.length < state.limit) {
+    if (posts.length < state.limit) {
       commit('setEndContent', true)
     }
+    commit('setPosts', posts)
     // можно ещё проверку, если есть длина и endContent === true, то установить endContent на false; для того, чтобы в компонентах не писать лишние строчки
-    commit('setPosts', response.posts)
   },
   changeTags({ commit }, tags) {
     commit('setTags', tags)
