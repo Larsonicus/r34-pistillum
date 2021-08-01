@@ -1,17 +1,15 @@
 <template>
   <form style="max-width: inherit" @submit.prevent>
-    <form @submit.prevent>
-      <input
-        v-model="value"
-        pattern="^[a-zA-Z_()0-9]+$"
-        type="text"
-        autocomplete="off"
-        placeholder="Anal Rape Jesus"
-        autofocus
-        class="input-container"
-      />
-    </form>
-  </div>
+    <input
+      v-model="value"
+      pattern="^[a-zA-Z_()0-9]+$"
+      type="text"
+      autocomplete="off"
+      autofocus
+      class="input-container shadow white-color mb-1"
+      style="max-width: inherit"
+    />
+  </form>
 </template>
 
 <script>

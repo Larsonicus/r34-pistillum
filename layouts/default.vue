@@ -120,6 +120,13 @@ body {
 .order--1 {
   order: -1;
 }
+.md-icon.md-size-2x {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  font-size: 40px !important;
+  padding-bottom: 7px;
+}
 /* телефон */
 @media screen and (min-width: 320px) {
   :root {

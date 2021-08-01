@@ -1,8 +1,12 @@
 <template>
-  <div v-if="tags" key="search-results" class="d-flex flex-column">
-    <div v-for="tag in tags" :key="tag.name">
-      <SearchFoundTagAddButton :tag="tag.name" :post-count="tag.postCount" />
-      <SearchFoundTagBanButton :tag="tag.name" />
+  <div v-if="tags" key="search-results">
+    <div v-for="tag in tags" :key="tag.name" class="d-flex">
+      <SearchFoundTagAddButton
+        :tag="tag.name"
+        :post-count="tag.postCount"
+        style="width: 90%"
+      />
+      <SearchFoundTagBanButton :tag="tag.name" style="width: 10%" />
     </div>
   </div>
   <div v-else key="search-status">Nothing!</div>

@@ -17,14 +17,28 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'referrer', content: 'no-referrer' },
     ],
-    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    link: [
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://unpkg.com/vue-material/dist/vue-material.min.css',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://unpkg.com/vue-material/dist/theme/default.css',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: '~/plugins/vue-material-design', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
