@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <p>
     Tags:
     <BaseButton
       v-for="(tag, index) in tags"
@@ -9,7 +9,7 @@
     >
       {{ tag }}
     </BaseButton>
-  </span>
+  </p>
 </template>
 
 <script>
@@ -25,12 +25,17 @@ export default {
       changeEndContent: 'modules/post/changeEndContent',
       changePid: 'modules/post/changePid',
       voidPosts: 'modules/post/voidPosts',
+      changeSelectedTags: 'modules/search/changeSelectedTags',
+      replaceTag: 'modules/search/replaceTag',
     }),
     getPosts(event) {
-      this.$router.push(`/?tags=${event.target.value}`) // можно убрать, если не использовать query
+      const tag = event.target.value
+      this.$router.push(`/?tags=${tag}`) // можно убрать, если не использовать query
       this.changeEndContent()
       this.changePid({ isIncrement: false })
-      this.changeTags(event.target.value)
+      this.replaceTag(tag)
+      this.changeSelectedTags(tag)
+      this.changeTags(tag)
       this.voidPosts()
       this.getResponsePosts()
       scrollTo(0, 0)

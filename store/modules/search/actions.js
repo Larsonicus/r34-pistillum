@@ -29,4 +29,7 @@ export default {
     }
     commit('addBannedTag', tag)
   },
+  replaceTag({ commit }, tag) {
+    commit('removeSelectedTag', tag)
+  },
 }

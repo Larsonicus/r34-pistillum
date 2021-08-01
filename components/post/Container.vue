@@ -1,14 +1,32 @@
 <template>
-  <div class="mb-2">
-    <BaseButton
-      v-if="contentType === 'image'"
-      class="clear-button"
-      @click.native="isImageTags = !isImageTags"
-    >
-      <LazyPostImage :content="content" class="container" :height="height" />
-    </BaseButton>
-    <PostInfo v-if="isImageTags" :tags="tags" />
-    <div v-else-if="contentType === 'video'" style="position: relative">
+  <div class="mb-2 post-wrapper">
+    <div v-if="contentType === 'image'">
+      <BaseButton
+        class="clear-button p-relative"
+        @click.native="isTagsOpen = !isTagsOpen"
+      >
+        <!-- TODO: сделать адаптивное разрешение картинки -->
+        <LazyPostImage
+          :content="content"
+          height="auto"
+          class="container"
+          style="min-height: 300px"
+        />
+        <!-- TODO: сделать, чтобы тэги не появлялись при открытии popup'а -->
+        <!-- <BaseButton class="fullscreen-button" @click.native="isPopupOpen = true"
+          >Fullscreen</BaseButton
+        > -->
+      </BaseButton>
+      <!-- <PostImagePopup
+        v-show="isPopupOpen"
+        :content="content"
+        :data-width="dataWidth"
+        :data-height="dataHeight"
+        @close="isPopupOpen = false"
+      /> -->
+      <PostInfoContainer :tags="tags" :is-tags-open="isTagsOpen" />
+    </div>
+    <div v-else class="p-relative">
       <LazyPostVideo
         loop
         :content="content"
@@ -16,11 +34,11 @@
         class="container"
       />
       <BaseButton
-        style="position: absolute; top: 0; right: 0"
-        @click.native="isVideoTags = !isVideoTags"
+        class="p-absolute right-top-angle"
+        @click.native="isTagsOpen = !isTagsOpen"
         >TAGS</BaseButton
       >
-      <PostInfo v-if="isVideoTags" :tags="tags" class="mb-2" />
+      <PostInfoContainer :tags="tags" :is-tags-open="isTagsOpen" />
     </div>
   </div>
 </template>
@@ -34,19 +52,40 @@ export default {
     preview: { type: String, required: true },
     dataWidth: { type: Number, required: true },
     dataHeight: { type: Number, required: true },
+    // sourceLink: { type: String, default: '' },
   },
   data() {
     return {
-      isImageTags: false,
-      isVideoTags: false,
+      isTagsOpen: false,
+      // isPopupOpen: false,
     }
   },
   computed: {
-    height() {
-      return this.dataHeight / (this.dataWidth / 720) // 720 - это width .container'а
+    getHeight() {
+      const containerWidth = window
+        .getComputedStyle(document.body)
+        .getPropertyValue('--container-width')
+      if (containerWidth.slice(-2) === 'px') {
+        return this.dataHeight / (this.dataWidth / containerWidth.slice(0, 4)) // удаление 'px'
+      }
+      return (
+        this.dataHeight /
+        (this.dataWidth / document.documentElement.clientWidth)
+      )
     },
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+.fullscreen-button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  z-index: 9;
+}
+.post-wrapper {
+  padding-bottom: 1rem;
+  background-color: #162447;
+}
+</style>
