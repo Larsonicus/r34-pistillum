@@ -32,6 +32,7 @@ export default {
     if (tags) {
       // если пользователь обновил страницу, и в query.tags что-то есть
       store.dispatch('modules/post/changeTags', tags)
+      store.dispatch('modules/search/changeSelectedTags', tags) // FIXME: проверку для забаненных тэгов
     }
     await store.dispatch('modules/post/getResponse')
   },
