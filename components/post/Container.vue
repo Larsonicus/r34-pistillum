@@ -8,8 +8,9 @@
         <!-- TODO: сделать адаптивное разрешение картинки -->
         <LazyPostImage
           :content="content"
-          class="container"
-          :style="{ height: getHeight + 'px', background: '#162447' }"
+          class="container image-resolution background-blue"
+          :height="dataHeight"
+          :width="dataWidth"
         />
         <!-- TODO: сделать, чтобы тэги не появлялись при открытии popup'а -->
         <!-- <BaseButton class="fullscreen-button" @click.native="isPopupOpen = true"
@@ -59,20 +60,6 @@ export default {
       // isPopupOpen: false,
     }
   },
-  computed: {
-    getHeight() {
-      const containerWidth = window
-        .getComputedStyle(document.body)
-        .getPropertyValue('--container-width')
-      if (containerWidth.slice(-2) === 'px') {
-        return this.dataHeight / (this.dataWidth / containerWidth.slice(0, 4)) // удаление 'px'
-      }
-      return (
-        this.dataHeight /
-        (this.dataWidth / document.documentElement.clientWidth)
-      )
-    },
-  },
 }
 </script>
 
@@ -86,5 +73,12 @@ export default {
 .post-wrapper {
   padding-bottom: 1rem;
   background-color: #162447;
+}
+.background-blue {
+  background: #162447;
+}
+.image-resolution {
+  height: auto;
+  width: 100%;
 }
 </style>
