@@ -8,9 +8,8 @@
         <!-- TODO: сделать адаптивное разрешение картинки -->
         <LazyPostImage
           :content="content"
-          height="auto"
           class="container"
-          style="min-height: 300px"
+          :style="{ height: getHeight + 'px', background: '#162447' }"
         />
         <!-- TODO: сделать, чтобы тэги не появлялись при открытии popup'а -->
         <!-- <BaseButton class="fullscreen-button" @click.native="isPopupOpen = true"
