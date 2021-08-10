@@ -125,10 +125,7 @@ body {
   .header__search-list {
     position: absolute;
     top: 2.6rem;
-    left: 23.5%;
-    width: calc(
-      var(--input-width) / 2
-    ); /* TODO: сделать для разных разреений */
+    width: var(--input-width);
   }
 }
 @media screen and (min-width: 576px) {
@@ -139,6 +136,10 @@ body {
 @media screen and (min-width: 768px) {
   :root {
     --container-width: 100%;
+  }
+  .header__search-list {
+    left: 23.5%;
+    width: calc(var(--input-width) / 2);
   }
 }
 /* планшет */
