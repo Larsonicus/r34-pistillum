@@ -1,8 +1,8 @@
 <template>
   <div class="p-relative">
     <div class="header z-index-10">
+      <MenuTheMenuButton class="header__menu" />
       <SearchContainer />
-      <!-- <MenuContainer class="order--1" /> -->
     </div>
     <Nuxt />
   </div>
@@ -11,7 +11,6 @@
 <style>
 :root {
   --container-width: 720px;
-  --search-max-width: 250px;
   /* ! ИЗМЕНЯЯ НАЗВАНИЯ ПЕРЕМЕННЫХ ТУТ, НЕ ЗАБУДЬТЕ ИЗМЕНИТЬ ИХ В ЗАВИСИМЫХ КОМПОНЕНТАХ (PostContainer) ! */
 }
 html {
@@ -38,20 +37,19 @@ body {
 .container {
   width: var(--container-width);
 }
-.search-container {
-  max-width: var(--search-max-width);
-}
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 60px 1fr;
   position: static;
+  z-index: 54;
   top: 0;
   width: 100%;
+  height: 55px;
   background-color: #162447;
-  justify-content: center;
 }
 .header__menu {
   position: relative;
-  top: 1em;
+  top: 0.5em;
   left: 0;
   margin-right: 1em;
 }
@@ -64,10 +62,6 @@ body {
   position: absolute;
   top: 2.75em;
   background: #1b1b2f;
-  width: var(--search-max-width);
-}
-.header__search-button {
-  top: 0.225em;
 }
 .p-relative {
   position: relative;
@@ -117,27 +111,29 @@ body {
 .t4 {
   top: 4rem;
 }
-.order--1 {
-  order: -1;
-}
 .md-icon.md-size-2x {
   width: 40px;
   min-width: 40px;
   height: 40px;
   font-size: 40px !important;
-  padding-bottom: 7px;
 }
 /* телефон */
 @media screen and (min-width: 320px) {
   :root {
     --container-width: 100%;
-    --search-max-width: 175px;
+  }
+  .header__search-list {
+    position: absolute;
+    top: 2.6rem;
+    left: 23.5%;
+    width: calc(
+      var(--input-width) / 2
+    ); /* TODO: сделать для разных разреений */
   }
 }
 @media screen and (min-width: 576px) {
   :root {
     --container-width: 100%;
-    --search-max-width: 395px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -156,11 +152,11 @@ body {
 @media screen and (min-width: 1200px) {
   :root {
     --container-width: 650px;
-    --search-max-width: 200px;
   }
   .header {
     position: relative;
     top: 1em;
+    height: 0;
   }
   .header__menu {
     position: absolute;
@@ -173,15 +169,15 @@ body {
   .header__search-list {
     position: static;
     top: 0;
+    left: 0;
     background: 0;
-    width: inherit;
+    width: var(--input-width);
   }
 }
 /* мой большой моник */
 @media screen and (min-width: 1400px) {
   :root {
     --container-width: 750px;
-    --search-max-width: 250px;
   }
 }
 /* TODO: сделать для 2к и 4к */

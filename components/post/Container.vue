@@ -5,7 +5,6 @@
         class="clear-button p-relative"
         @click.native="isTagsOpen = !isTagsOpen"
       >
-        <!-- TODO: сделать адаптивное разрешение картинки -->
         <LazyPostImage
           :content="content"
           class="container image-resolution background-blue"

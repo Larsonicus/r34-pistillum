@@ -4,9 +4,9 @@
       <SearchFoundTagAddButton
         :tag="tag.name"
         :post-count="tag.postCount"
-        style="width: 90%"
+        style="width: 100%"
       />
-      <SearchFoundTagBanButton :tag="tag.name" style="width: 10%" />
+      <SearchFoundTagBanButton :tag="tag.name" />
     </div>
   </div>
   <div v-else key="search-status">Nothing!</div>
