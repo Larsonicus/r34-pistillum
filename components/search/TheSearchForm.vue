@@ -8,6 +8,8 @@
       autofocus
       class="input-container shadow white-color"
       @click="showTags"
+      @change="search"
+      @input="debouncedOnInput"
     />
     <SearchTheSearchButton />
   </form>
@@ -15,15 +17,16 @@
 
 <script>
 import { mapActions } from 'vuex'
+import debounce from 'lodash.debounce'
 export default {
   data() {
     return {
       value: '',
     }
   },
-  watch: {
-    value() {
-      this.getResponseTags(this.value)
+  computed: {
+    debouncedOnInput() {
+      return debounce(this.search, 350)
     },
   },
   methods: {
@@ -33,6 +36,9 @@ export default {
     showTags() {
       const searchList = document.getElementById('searchList')
       searchList.style.display = 'block'
+    },
+    search() {
+      this.getResponseTags(this.value)
     },
   },
 }
