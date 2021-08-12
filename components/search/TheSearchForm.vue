@@ -8,7 +8,7 @@
       autofocus
       class="input-container shadow white-color"
       @click="showTags"
-      @change="search"
+      @keyup.enter="search"
       @input="debouncedOnInput"
     />
     <SearchTheSearchButton />
