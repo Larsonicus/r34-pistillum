@@ -196,7 +196,7 @@ body {
     --container-width: 650px;
   }
   .navbar {
-    position: relative;
+    position: fixed;
     top: 1em;
     height: 0;
   }
