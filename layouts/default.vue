@@ -1,12 +1,47 @@
 <template>
-  <div class="p-relative">
-    <div class="header z-index-10">
-      <MenuTheMenuButton class="header__menu" />
+  <div>
+    <nav
+      id="navbar"
+      class="navbar z-index-10"
+      :class="{ 'navbar--hidden': !isShowNavbar }"
+    >
+      <MenuTheMenuButton class="navbar__menu" />
       <SearchContainer />
-    </div>
+    </nav>
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isShowNavbar: true,
+      lastScrollPosition: 0,
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 55) {
+        return
+      }
+      this.isShowNavbar = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
+    },
+  },
+}
+</script>
 
 <style>
 :root {
@@ -37,28 +72,34 @@ body {
 .container {
   width: var(--container-width);
 }
-.header {
+.navbar {
   display: grid;
   grid-template-columns: 60px 1fr;
-  position: static;
+  position: fixed;
   z-index: 54;
   top: 0;
   width: 100%;
   height: 55px;
   background-color: #162447;
+  transform: translate3d(0, 0, 0);
+  transition: 0.1s all ease-out;
 }
-.header__menu {
+.navbar.navbar--hidden {
+  box-shadow: none;
+  transform: translate3d(0, -100%, 0);
+}
+.navbar__menu {
   position: relative;
   top: 0.5em;
   left: 0;
   margin-right: 1em;
 }
-.header__search {
+.navbar__search {
   position: relative;
   top: 0.5em;
   right: 0;
 }
-.header__search-list {
+.navbar__search-list {
   position: absolute;
   top: 2.75em;
   background: #1b1b2f;
@@ -122,7 +163,7 @@ body {
   :root {
     --container-width: 100%;
   }
-  .header__search-list {
+  .navbar__search-list {
     position: absolute;
     top: 2.6rem;
     width: var(--input-width);
@@ -137,7 +178,7 @@ body {
   :root {
     --container-width: 100%;
   }
-  .header__search-list {
+  .navbar__search-list {
     left: 23.5%;
     width: calc(var(--input-width) / 2);
   }
@@ -154,20 +195,20 @@ body {
   :root {
     --container-width: 650px;
   }
-  .header {
+  .navbar {
     position: relative;
     top: 1em;
     height: 0;
   }
-  .header__menu {
+  .navbar__menu {
     position: absolute;
     left: 1em;
   }
-  .header__search {
+  .navbar__search {
     position: absolute;
     right: 1em;
   }
-  .header__search-list {
+  .navbar__search-list {
     position: static;
     top: 0;
     left: 0;

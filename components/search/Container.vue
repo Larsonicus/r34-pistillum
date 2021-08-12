@@ -1,7 +1,7 @@
 <template>
-  <div class="header__search z-index-10">
+  <div class="navbar__search z-index-10">
     <SearchTheSearchForm />
-    <div id="searchList" class="header__search-list">
+    <div id="searchList" class="navbar__search-list">
       <!-- TODO: v-show -->
       <SearchTheListSelectedTags />
       <SearchTheListBannedTags />
