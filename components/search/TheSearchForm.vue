@@ -56,7 +56,7 @@ export default {
 }
 @media screen and (min-width: 1200px) {
   :root {
-    --input-width: 200px;
+    --input-width: 185px;
   }
   .input-container {
     background-color: #162447;
