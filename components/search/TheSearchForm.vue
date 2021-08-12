@@ -7,6 +7,7 @@
       autocomplete="off"
       autofocus
       class="input-container shadow white-color"
+      @click="showTags"
     />
     <SearchTheSearchButton />
   </form>
@@ -29,6 +30,10 @@ export default {
     ...mapActions({
       getResponseTags: 'modules/search/getResponse',
     }),
+    showTags() {
+      const searchList = document.getElementById('searchList')
+      searchList.style.display = 'block'
+    },
   },
 }
 </script>

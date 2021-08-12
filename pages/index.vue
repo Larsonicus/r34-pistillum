@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="hideTags">
     <div v-for="post in posts" :key="post.id" class="m-center container">
       <!-- TODO: выводить посты без повторов -->
       <post-container
@@ -60,6 +60,10 @@ export default {
           this.getResponsePosts()
         }
       }
+    },
+    hideTags() {
+      const searchList = document.getElementById('searchList')
+      searchList.style.display = 'none'
     },
   },
 }
