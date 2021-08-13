@@ -34,7 +34,7 @@ export default {
       getResponseTags: 'modules/search/getResponse',
     }),
     showTags() {
-      const searchList = document.getElementById('searchList')
+      const searchList = document.getElementById('search-list')
       searchList.style.display = 'block'
     },
     search() {

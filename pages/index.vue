@@ -62,7 +62,7 @@ export default {
       }
     },
     hideTags() {
-      const searchList = document.getElementById('searchList')
+      const searchList = document.getElementById('search-list')
       searchList.style.display = 'none'
     },
   },
