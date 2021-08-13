@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-2 post-wrapper">
+  <div class="mb-05 post-wrapper">
     <div v-if="contentType === 'image'">
       <BaseButton
         class="clear-button p-relative"
