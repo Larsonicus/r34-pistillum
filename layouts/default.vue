@@ -91,8 +91,6 @@ body {
 .navbar__button {
   position: relative;
   top: 0.5em;
-  left: 0;
-  margin-right: 1em;
 }
 .navbar__search {
   position: relative;
@@ -196,7 +194,6 @@ body {
     --container-width: 650px;
   }
   .navbar {
-    position: fixed;
     top: 1em;
     height: 0;
   }
