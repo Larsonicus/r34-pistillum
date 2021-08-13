@@ -1,5 +1,5 @@
 <template>
-  <BaseButton :value="tag" @click.native="addTag">
+  <BaseButton :value="tag" class="found-tag" @click.native="addTag">
     {{ tag + ` (${postCount})` }}
   </BaseButton>
 </template>
@@ -22,4 +22,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.found-tag {
+  word-wrap: break-word;
+}
+</style>

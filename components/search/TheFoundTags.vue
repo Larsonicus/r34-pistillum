@@ -1,11 +1,7 @@
 <template>
   <div v-if="tags" key="search-results">
-    <div v-for="tag in tags" :key="tag.name" class="d-flex">
-      <SearchFoundTagAddButton
-        :tag="tag.name"
-        :post-count="tag.postCount"
-        style="width: 100%"
-      />
+    <div v-for="tag in tags" :key="tag.name" class="found-tags">
+      <SearchFoundTagAddButton :tag="tag.name" :post-count="tag.postCount" />
       <SearchFoundTagBanButton :tag="tag.name" />
     </div>
   </div>
@@ -23,4 +19,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.found-tags {
+  display: grid;
+  grid-template-columns: 90% 10%;
+} /* TODO: add adaptive? */
+</style>
