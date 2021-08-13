@@ -5,7 +5,7 @@
       class="navbar z-index-10"
       :class="{ 'navbar--hidden': !isShowNavbar }"
     >
-      <MenuTheMenuButton class="navbar__menu" />
+      <MenuTheMenuButton class="navbar__button" />
       <SearchContainer />
     </nav>
     <Nuxt />
@@ -88,7 +88,7 @@ body {
   box-shadow: none;
   transform: translate3d(0, -100%, 0);
 }
-.navbar__menu {
+.navbar__button {
   position: relative;
   top: 0.5em;
   left: 0;
@@ -200,7 +200,7 @@ body {
     top: 1em;
     height: 0;
   }
-  .navbar__menu {
+  .navbar__button {
     position: absolute;
     left: 1em;
   }
