@@ -14,7 +14,10 @@
 export default {}
 </script>
 
-<style scoped>
+<style>
+.break-word {
+  word-break: break-word;
+}
 .z-index-10 {
   z-index: 10;
 }

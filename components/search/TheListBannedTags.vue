@@ -5,6 +5,7 @@
       v-for="(bannedTag, index) in bannedTags"
       :key="index"
       type="button"
+      class="break-word"
       :value="bannedTag"
       @click.native="removeBanTag"
     >

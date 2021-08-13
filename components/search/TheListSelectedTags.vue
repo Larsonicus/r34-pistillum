@@ -5,6 +5,7 @@
       v-for="(selectedTag, index) in selectedTags"
       :key="index"
       :value="selectedTag"
+      class="break-word"
       @click.native="removeTag"
       >{{ selectedTag }}</BaseButton
     >
