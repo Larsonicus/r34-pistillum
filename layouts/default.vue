@@ -156,6 +156,9 @@ body {
   height: 40px;
   font-size: 40px !important;
 }
+.md-icon.md-theme-default.md-icon-font {
+  color: aliceblue !important;
+}
 /* телефон */
 @media screen and (min-width: 320px) {
   :root {

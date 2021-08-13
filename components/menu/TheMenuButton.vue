@@ -1,6 +1,6 @@
 <template>
   <md-button class="md-icon-button" @click="openMenu">
-    <md-icon class="md-size-2x" style="color: aliceblue">menu</md-icon>
+    <md-icon class="md-size-2x">menu</md-icon>
   </md-button>
 </template>
 
