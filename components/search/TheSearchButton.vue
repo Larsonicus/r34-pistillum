@@ -1,5 +1,5 @@
 <template>
-  <md-button class="md-icon-button" @click.native="search">
+  <md-button class="md-icon-button" @click="search">
     <md-icon class="md-size-2x">search</md-icon>
   </md-button>
 </template>
