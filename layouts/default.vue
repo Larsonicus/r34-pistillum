@@ -132,34 +132,34 @@ button {
   flex-wrap: wrap;
 }
 .mb-1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .mb-05 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 .mt-1 {
-  margin-top: 1rem;
+  margin-top: 1em;
 }
 .mt-2 {
-  margin-top: 2rem;
+  margin-top: 2em;
 }
 .mr-1 {
-  margin-right: 1rem;
+  margin-right: 1em;
 }
 .l1 {
-  left: 1rem;
+  left: 1em;
 }
 .l2 {
-  left: 2rem;
+  left: 2em;
 }
 .t1 {
-  top: 1rem;
+  top: 1em;
 }
 .t2 {
-  top: 2rem;
+  top: 2em;
 }
 .t4 {
-  top: 4rem;
+  top: 4em;
 }
 .md-icon.md-size-2x {
   width: 40px;
