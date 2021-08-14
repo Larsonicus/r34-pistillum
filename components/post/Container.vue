@@ -69,6 +69,11 @@ export default {
   right: 0.5rem;
   z-index: 9;
 }
+.clear-button {
+  padding: 0 !important;
+  width: 100%;
+  box-shadow: none !important;
+}
 .post-wrapper {
   padding-bottom: 1rem;
   background-color: #162447;

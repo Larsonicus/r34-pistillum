@@ -5,9 +5,8 @@
       pattern="^[a-zA-Z_()0-9]+$"
       type="text"
       autocomplete="off"
-      autofocus
       class="input-container shadow white-color"
-      @click="showTags"
+      @click="showSearchList"
       @keyup.enter="search"
       @input="debouncedOnInput"
     />
@@ -16,9 +15,11 @@
 </template>
 
 <script>
+import showSearchListMixin from '@/mixins/showSearchListMixin'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
 export default {
+  mixins: [showSearchListMixin],
   data() {
     return {
       value: '',
@@ -33,10 +34,6 @@ export default {
     ...mapActions({
       getResponseTags: 'modules/search/getResponse',
     }),
-    showTags() {
-      const searchList = document.getElementById('search-list')
-      searchList.style.display = 'block'
-    },
     search() {
       this.getResponseTags(this.value)
     },
@@ -64,7 +61,7 @@ export default {
 }
 @media screen and (min-width: 1400px) {
   :root {
-    --input-width: 250px;
+    --input-width: 300px;
   }
   .input-container {
     background-color: #162447;

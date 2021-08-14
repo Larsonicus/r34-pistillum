@@ -1,8 +1,11 @@
 <template>
-  <div v-if="tags" key="search-results">
-    <div v-for="tag in tags" :key="tag.name" class="found-tags">
-      <SearchFoundTagAddButton :tag="tag.name" :post-count="tag.postCount" />
-      <SearchFoundTagBanButton :tag="tag.name" />
+  <div v-if="tags" key="search-results" class="found-tags">
+    <div v-for="tag in tags" :key="tag.name" class="tag-indent">
+      <SearchFoundTagButton
+        :tag="tag.name"
+        :post-count="tag.postCount"
+        class="height-100"
+      />
     </div>
   </div>
   <div v-else key="search-status">Nothing!</div>
@@ -20,8 +23,21 @@ export default {
 </script>
 
 <style>
+.height-100 {
+  height: 100%;
+}
+.padding-0 {
+  padding: 0 !important;
+}
 .found-tags {
-  display: grid;
-  grid-template-columns: 90% 10%;
-} /* TODO: add adaptive? */
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.small-size {
+  width: 16px;
+  height: 20px;
+  font-size: 16px !important;
+  min-width: 16px;
+}
 </style>

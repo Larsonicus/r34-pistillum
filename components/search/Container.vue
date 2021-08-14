@@ -1,24 +1,51 @@
 <template>
   <div class="navbar__search z-index-10">
-    <SearchTheSearchForm />
+    <SearchTheSearchForm class="search-form" />
     <div id="search-list" class="navbar__search-list">
       <!-- TODO: v-show -->
+      <SearchTheFoundTags />
       <SearchTheListSelectedTags />
       <SearchTheListBannedTags />
-      <SearchTheFoundTags />
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import hideSearchListOnMountedMixin from '@/mixins/hideSearchListOnMountedMixin'
+export default {
+  mixins: [hideSearchListOnMountedMixin],
+}
 </script>
 
 <style>
+.search-form {
+  margin-bottom: 16px;
+}
+.chosen-tags {
+  display: flex;
+  align-items: center;
+}
 .break-word {
   word-break: break-word;
 }
+.width-button-20px {
+  width: 20px;
+  min-width: 20px;
+  margin: 0;
+}
+.height-20px {
+  height: 20px;
+}
+.tag-indent {
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
 .z-index-10 {
   z-index: 10;
+}
+@media screen and (min-width: 1200px) {
+  .preset-button {
+    display: block;
+  }
 }
 </style>

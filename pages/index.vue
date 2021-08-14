@@ -1,5 +1,5 @@
 <template>
-  <div @click="hideTags">
+  <div @click="hideSearchList">
     <div v-for="post in posts" :key="post.id" class="m-center container">
       <!-- TODO: выводить посты без повторов -->
       <post-container
@@ -22,8 +22,10 @@
 </template>
 
 <script>
+import hideSearchListMixin from '@/mixins/hideSearchListMixin'
 import { mapActions, mapGetters } from 'vuex'
 export default {
+  mixins: [hideSearchListMixin],
   async asyncData({ store, query }) {
     let tags = query.tags?.replace(/ /g, '+')
     if (tags === undefined) {
@@ -61,10 +63,6 @@ export default {
         }
       }
     },
-    hideTags() {
-      const searchList = document.getElementById('search-list')
-      searchList.style.display = 'none'
-    },
   },
 }
 </script>
@@ -72,9 +70,6 @@ export default {
 <style>
 .fs-1 {
   font-size: 1rem !important;
-}
-.c-pointer {
-  cursor: pointer;
 }
 .m-center {
   margin: 0 auto;
@@ -85,11 +80,6 @@ export default {
 .right-top-angle {
   right: 0;
   top: 0;
-}
-.clear-button {
-  border-width: 0;
-  padding: 0;
-  width: 100%;
 }
 .shadow {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));

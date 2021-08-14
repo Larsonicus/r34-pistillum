@@ -1,14 +1,15 @@
 <template>
-  <div v-if="selectedTags.length" class="d-flex flex-wrap">
-    <span>Selected: </span>
+  <div v-if="selectedTags.length" class="d-flex flex-wrap selected-indent">
+    <span class="chosen-tags">Selected: </span>
     <BaseButton
       v-for="(selectedTag, index) in selectedTags"
       :key="index"
-      :value="selectedTag"
-      class="break-word"
-      @click.native="removeTag"
-      >{{ selectedTag }}</BaseButton
+      class="break-word d-flex tag-indent"
+      @click.native="removeTag(selectedTag)"
     >
+      <span>{{ selectedTag }}</span>
+      <SearchCloseButton />
+    </BaseButton>
   </div>
 </template>
 
@@ -24,11 +25,15 @@ export default {
     ...mapActions({
       changeSelectedTags: 'modules/search/changeSelectedTags',
     }),
-    removeTag(event) {
-      this.changeSelectedTags(event.target.value)
+    removeTag(tag) {
+      this.changeSelectedTags(tag)
     },
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+.selected-indent {
+  margin-bottom: 6px;
+}
+</style>

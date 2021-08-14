@@ -1,5 +1,10 @@
 <template>
-  <BaseButton :value="tag" @click.native="banTag">-</BaseButton>
+  <md-button
+    class="md-icon-button height-100 ban-button padding-0 width-button-20px"
+    @click="banTag"
+  >
+    <md-icon class="small-size">do_not_disturb</md-icon>
+  </md-button>
 </template>
 
 <script>
@@ -12,11 +17,20 @@ export default {
     ...mapActions({
       changeBannedTags: 'modules/search/changeBannedTags',
     }),
-    banTag(event) {
-      this.changeBannedTags(event.target.value)
+    banTag() {
+      this.changeBannedTags(this.tag)
     },
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+.ban-button {
+  color: black;
+  background: #e43f5a;
+  border-radius: 0px 4px 4px 0px;
+}
+.md-icon.md-theme-default.md-icon-font {
+  color: black !important;
+}
+</style>

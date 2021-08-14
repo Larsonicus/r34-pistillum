@@ -1,15 +1,14 @@
 <template>
   <div v-if="bannedTags.length" class="d-flex flex-wrap">
-    <span>Blacklist: </span>
+    <span class="chosen-tags">Banned: </span>
     <BaseButton
       v-for="(bannedTag, index) in bannedTags"
       :key="index"
-      type="button"
-      class="break-word"
-      :value="bannedTag"
-      @click.native="removeBanTag"
+      class="break-word d-flex tag-indent"
+      @click.native="removeBanTag(bannedTag)"
     >
-      {{ bannedTag }}
+      <span>{{ bannedTag }}</span>
+      <SearchCloseButton />
     </BaseButton>
   </div>
 </template>
@@ -26,8 +25,8 @@ export default {
     ...mapActions({
       changeBannedTags: 'modules/search/changeBannedTags',
     }),
-    removeBanTag(event) {
-      this.changeBannedTags(event.target.value)
+    removeBanTag(tag) {
+      this.changeBannedTags(tag)
     },
   },
 }

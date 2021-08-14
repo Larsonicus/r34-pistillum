@@ -49,9 +49,6 @@ export default {
   /* ! ИЗМЕНЯЯ НАЗВАНИЯ ПЕРЕМЕННЫХ ТУТ, НЕ ЗАБУДЬТЕ ИЗМЕНИТЬ ИХ В ЗАВИСИМЫХ КОМПОНЕНТАХ (PostContainer) ! */
 }
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -66,8 +63,18 @@ html {
   margin: 0;
 }
 body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
   background-color: #1b1b2f;
   color: #ccc;
+}
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 .container {
   width: var(--container-width);
@@ -98,6 +105,8 @@ body {
   right: 0;
 }
 .navbar__search-list {
+  display: grid;
+  grid-template-columns: 1fr 10px;
   position: absolute;
   top: 2.75em;
   background: #1b1b2f;
@@ -166,7 +175,7 @@ body {
   }
   .navbar__search-list {
     position: absolute;
-    top: 2.6rem;
+    top: 3.5em;
     width: var(--input-width);
   }
 }
