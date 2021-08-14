@@ -112,6 +112,7 @@ button {
   position: absolute;
   top: 2.75em;
   background: #1b1b2f;
+  overflow-y: scroll;
 }
 .p-relative {
   position: relative;
@@ -176,6 +177,7 @@ button {
     --container-width: 100%;
   }
   .navbar__search-list {
+    max-height: 300px;
     position: absolute;
     top: 3.5em;
     width: var(--input-width);
@@ -224,6 +226,7 @@ button {
   }
   .navbar__search-list {
     position: static;
+    max-height: 600px;
     top: 0;
     left: 0;
     background: 0;
