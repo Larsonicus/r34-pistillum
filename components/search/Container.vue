@@ -3,6 +3,7 @@
     <SearchTheSearchForm class="search-form" />
     <div id="search-list" class="navbar__search-list">
       <!-- TODO: v-show -->
+      <SearchThePresetButton class="preset-button" />
       <SearchTheFoundTags />
       <SearchTheListSelectedTags />
       <SearchTheListBannedTags />
@@ -39,6 +40,11 @@ export default {
 .tag-indent {
   margin-right: 8px;
   margin-bottom: 4px;
+}
+.preset-button {
+  display: none;
+  position: absolute;
+  right: 0;
 }
 .z-index-10 {
   z-index: 10;

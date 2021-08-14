@@ -7,7 +7,9 @@
     >
       <MenuTheMenuButton class="navbar__button" />
       <SearchContainer />
+      <SearchThePresetButton id="hide-on-desktop" class="navbar__button" />
     </nav>
+    <PresetContainer />
     <Nuxt />
   </div>
 </template>
@@ -81,7 +83,7 @@ button {
 }
 .navbar {
   display: grid;
-  grid-template-columns: 60px 1fr;
+  grid-template-columns: 60px 1fr 60px;
   position: fixed;
   z-index: 54;
   top: 0;
@@ -189,7 +191,7 @@ button {
     --container-width: 100%;
   }
   .navbar__search-list {
-    left: 23.5%;
+    left: 26.5%;
     width: calc(var(--input-width) / 2);
   }
 }
@@ -204,6 +206,9 @@ button {
 @media screen and (min-width: 1200px) {
   :root {
     --container-width: 650px;
+  }
+  #hide-on-desktop {
+    display: none;
   }
   .navbar {
     top: 1em;
