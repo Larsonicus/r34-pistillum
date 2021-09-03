@@ -112,7 +112,7 @@ button {
   position: absolute;
   top: 2.75em;
   background: #1b1b2f;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .p-relative {
   position: relative;
